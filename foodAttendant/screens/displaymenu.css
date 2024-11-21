@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Matches your preferred color palette */
+    color: #564631; /* Primary text color */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c48d0a; /* Golden yellow background */
+    color: #564631; /* Dark brown text */
+    padding: 15px 20px;
+}
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .logo {
+    height: 50px;
+}
+
+header .cafeteria-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+header .search-container {
+    display: flex;
+    gap: 10px;
+}
+
+header .search {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+}
+
+header .searchbtn {
+    padding: 8px 15px;
+    background-color: #564631; /* Dark brown button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header .searchbtn:hover {
+    background-color: #3d3425;
+}
+
+header .profile-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #564631; /* Dark brown background */
+    color: #fff; /* White text */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.sidebar nav a:hover {
+    background-color: #c48d0a; /* Highlighted background */
+}
+
+.sidebar nav .dropdown-content {
+    display: none;
+    padding-left: 20px;
+}
+
+.sidebar nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+h1 {
+    margin-top: 70px;
+    text-align: center;
+    font-size: 2rem;
+    color: #564631;
+}
+
+#menu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-left: 270px; /* Space for sidebar */
+}
+
+.menu-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-item h3 {
+    font-size: 1.5rem;
+    color: #564631;
+    margin: 10px 0;
+}
+
+.menu-item p {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.menu-item p.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.menu-item p.special-meal {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #c48d0a; /* Golden yellow for emphasis */
+}

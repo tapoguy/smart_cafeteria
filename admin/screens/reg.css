@@ -1,0 +1,131 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+/* Header styles */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #564631;
+  padding: 10px 20px;
+  color: white;
+}
+
+header .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+header .logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+header .cafeteria-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+header .profile-container {
+  display: flex;
+  align-items: center;
+}
+
+header .profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+
+/* Registration form container */
+#customerRegistrationFormContainer {
+  margin-top: 100px;
+  margin-left: 480px;
+  padding: 40px;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#customerRegistrationFormContainer h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #564631;
+  text-align: center;
+}
+
+/* Form styles */
+#customerRegistrationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#customerRegistrationForm .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+#customerRegistrationForm .form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #564631;
+}
+
+#customerRegistrationForm .form-group input[type="text"],
+#customerRegistrationForm .form-group input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#customerRegistrationForm .form-group input[type="text"]:focus,
+#customerRegistrationForm .form-group input[type="password"]:focus {
+  border-color: #564631;
+  outline: none;
+}
+
+#customerRegistrationForm .form-group input[type="submit"] {
+  padding: 10px;
+  background-color: #564631;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#customerRegistrationForm .form-group input[type="submit"]:hover {
+  background-color: #564631;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #customerRegistrationFormContainer {
+    margin-left: 0;
+    padding: 20px;
+    width: 90%;
+  }
+}

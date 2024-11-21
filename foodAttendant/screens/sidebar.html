@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+.sidebar {
+    width: 200px;
+    background-color: #c48d0a;
+    color: #ffffff;
+    height: calc(100vh - 70px); /* Full height minus header */
+    position: fixed;
+    top: 70px;
+    left: 0;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 15px 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.sidebar nav a i {
+    margin-right: 10px;
+}
+
+.sidebar nav a:hover {
+    background-color: #ffffff;
+    color: #c48d0a;
+    padding-left: 20px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #564631;
+    color: #333333;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.dropdown-content a {
+    color: #333333;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-weight: normal;
+    border-radius: 5px;
+}
+
+.dropdown-content a:hover {
+    background-color: #c48d0a;
+    color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.logout {
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    padding: 15px 10px;
+    color: #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.logout:hover {
+    background-color: #ffffff;
+    color: #c48d0a;
+    padding-left: 20px;
+}
+
+</style>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <nav>
+          <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+          <div class="dropdown">
+            <a href="#" onclick="toggleOrdersDropdown()"><i class="fas fa-receipt"></i> Orders <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-content" id="orders-dropdown">
+              <a href="orderlist.php"><i class="fas fa-list"></i> Order List</a>
+              <a href="#"><i class="fas fa-history"></i> Order History</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="#" onclick="toggleMenusDropdown()"><i class="fas fa-hamburger"></i> Menus <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-content" id="menus-dropdown">
+              <a href="http://localhost/group2_project/addmenuu.php"><i class="fas fa-plus-circle"></i> Add Menu</a>
+              <a href="displaymenu.php"><i class="fas fa-list-alt"></i> View Menus</a>
+            </div>
+          </div>
+          <div class="dropdown">
+          <a href="#" onclick="toggleDropdown()"><i class="fas fa-users"></i> Customers <i class="fas fa-caret-down"></i></a>
+         <div class="dropdown-content" id="customer-dropdown">
+          <a href="reg.html"><i class="fas fa-user-plus"></i> Add New</a>
+          <a href="retrive.php"><i class="fas fa-users"></i> Members</a>
+          <a href="#"><i class="fas fa-users"></i> General customers</a>
+
+        </div>
+      </div>
+          <a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
+          <a href="feedback.html"><i class="fas fa-cog"></i> feedback</a>
+          <a href="/login.html" class="logout"><i class="fa fa-sign-out"></i>logout</a>
+        
+        </nav>
+</aside>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="dashboard.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Cafeteria Feedback System - Admin View</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            color: #333;
+        }
+        .header {
+            background-color:  #fff;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            margin-top: 70px;
+            font-weight: 600;
+        }
+        .dashboard {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+        .feedback-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .feedback {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        .feedback:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .feedback.read {
+            background-color: #f4f4f4;
+            cursor: default;
+        }
+        .feedback-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .feedback-text {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .timestamp {
+            font-size: 12px;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Media Query for responsive design */
+        @media (max-width: 768px) {
+            .dashboard {
+                flex-direction: column;
+            }
+            .feedback-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+      <!-- Header Section -->
+  <header>
+    <div class="logo-container">
+      <img src="daeyang_logo.png" alt="Daeyang Logo" class="logo">
+      <small class="cafeteria-name">Daeyang Cafeteria</small>
+    </div>
+    <div class="search-container">
+      <input type="search" placeholder="Search..." class="search">
+      <button type="submit" class="searchbtn">Search</button>
+    </div>
+    <div class="profile-container">
+      <a href="#" class="notification">
+        <i class="fa fa-bell"></i>
+      </a>
+      <img src="logo.jpg" alt="Profile Picture" class="profile">
+    </div>
+  </header>
+
+  <!-- Sidebar Section -->
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <div class="dropdown">
+        <a href="#" onclick="toggleOrdersDropdown()">
+          <i class="fas fa-receipt"></i> Orders <i class="fas fa-caret-down"></i>
+        </a>
+        <div class="dropdown-content" id="orders-dropdown">
+          <a href="#"><i class="fas fa-list"></i> Order List</a>
+          <a href="#"><i class="fas fa-history"></i> Order History</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" onclick="toggleMenusDropdown()">
+          <i class="fas fa-hamburger"></i> Menus <i class="fas fa-caret-down"></i>
+        </a>
+        <div class="dropdown-content" id="menus-dropdown">
+          <a href="addmenu.html"><i class="fas fa-plus-circle"></i> Add Menu</a>
+          <a href="displaymenu.html"><i class="fas fa-list-alt"></i> View Menus</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" onclick="toggleDropdown()">
+          <i class="fas fa-users"></i> Customers <i class="fas fa-caret-down"></i>
+        </a>
+        <div class="dropdown-content" id="customer-dropdown">
+          <a href="reg.html"><i class="fas fa-user-plus"></i> Add New</a>
+          <a href="#"><i class="fas fa-users"></i> Update User</a>
+          <a href="retrive.html"><i class="fas fa-users"></i> Customer List</a>
+        </div>
+      </div>
+      <a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
+      <a href="feedback.html"><i class="fas fa-cog"></i> Feedback</a>
+      <a href="/login.html" class="logout"><i class="fa fa-sign-out"></i> Logout</a>
+    </nav>
+  </aside>
+
+    <div class="header">
+        Cafeteria Feedback - Admin Panel
+    </div>
+    
+    <div class="dashboard">
+        <div class="feedback-container" id="feedbackContainer">
+            <!-- Feedback items will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.1/socket.io.min.js"></script> <!-- Ensure the correct Socket.IO version -->
+    <script>
+        const API_URL = 'http://172.20.10.2:5000/api/feedback';
+        const socket = io('http://172.20.10.2:5000');
+        const feedbackContainer = document.getElementById('feedbackContainer');
+    
+        // Fetch initial feedback data from the server
+        async function fetchFeedback() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+                const feedbacks = await response.json();
+                displayFeedback(feedbacks);
+            } catch (error) {
+                console.error('Error fetching feedback:', error);
+            }
+        }
+    
+        // Display the list of feedback
+        function displayFeedback(feedbacks) {
+            feedbackContainer.innerHTML = ''; // Clear existing feedback
+            feedbacks.forEach((feedback) => {
+                addFeedbackToUI(feedback);
+            });
+        }
+    
+        // Add individual feedback to the UI
+        function addFeedbackToUI(feedback) {
+            const feedbackElement = document.createElement('div');
+            feedbackElement.className = feedback.readFeedback ? 'feedback read' : 'feedback';
+            feedbackElement.innerHTML = `
+                <p class="feedback-title">Anonymous Feedback</p>
+                <p class="feedback-text">${feedback.message}</p>
+                <p class="timestamp">Sent: ${new Date(feedback.created_at).toLocaleString()}</p>
+            `;
+            feedbackContainer.prepend(feedbackElement); // Add new feedback at the top
+        }
+    
+        // Listen for real-time updates from Socket.IO
+        socket.on('connect', () => {
+            console.log('Connected to Socket.IO server');
+        });
+    
+        socket.on('newFeedback', (feedback) => {
+            console.log('New feedback received:', feedback);
+            addFeedbackToUI(feedback);
+        });
+    
+        socket.on('connect_error', (error) => {
+            console.error('Socket.IO connection error:', error);
+        });
+    
+        // Load feedback when the page loads
+        window.onload = fetchFeedback;
+    </script>
+          
+</body>
+</html>

@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .logo{
+    display: flex;
+    gap: 20px;
+  }
+  img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    
+    
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #f5f5f5;
+  }
+  
+   
+  .sidebar {
+    width: 200px;
+    background-color: rgb(39, 25, 73);
+    color: white;
+    padding: 20px;
+    height: 700px;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fff;
+  }
+  
+  .sidebar nav a {
+    display: block;
+    padding: 20px 0;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+ 
+  .sidebar nav a:hover {
+    background-color: #2e6a87;
+    padding-left: 10px;
+  }
+
+.dropdown {
+    position: relative;
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 20px;
+    background-color: rgb(39, 25, 73);
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+  }
+  
+  
+  .dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .logout{
+    margin-top: 200px;
+  }
+  main{
+    flex: 1;
+    padding: 20px;
+    
+  }
+  .section1{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+   
+  }
+   .stat{
+    background-color:white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 23%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .graphs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.graph-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 300px;
+}
+
+.section3 div{
+    margin-top: 20px;
+}

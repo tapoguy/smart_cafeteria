@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "433447662836",
+    "project_id": "smart-cafeteria-75c37",
+    "storage_bucket": "smart-cafeteria-75c37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433447662836:android:a7f9b14eeec94d56f4daa1",
+        "android_client_info": {
+          "package_name": "com.daeyang.smartcafeteria"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxxJjSqrrF6eA4ENrgwxyiMV4fY9VP1xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433447662836:android:0c92cff132654239f4daa1",
+        "android_client_info": {
+          "package_name": "smart_cafeteria.N001"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxxJjSqrrF6eA4ENrgwxyiMV4fY9VP1xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

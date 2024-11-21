@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+     <aside class="sidebar" id="sidebar">
+        <div class="logo">
+          
+        <h2> Deyaeng Cafeteria</h2>
+        <img src="daeyang_logo.png" alt="sikuwoneka">
+        </div>
+        <nav>
+          <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+          <div class="dropdown">
+            <a href="#" onclick="toggleOrdersDropdown()"><i class="fas fa-receipt"></i> Orders <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-content" id="orders-dropdown">
+              <a href="#"><i class="fas fa-list"></i> Order List</a>
+              <a href="#"><i class="fas fa-history"></i> Order History</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="#" onclick="toggleMenusDropdown()"><i class="fas fa-hamburger"></i> Menus <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-content" id="menus-dropdown">
+              <a href="#"><i class="fas fa-plus-circle"></i> Add Menu</a>
+              <a href="#"><i class="fas fa-list-alt"></i> View Menus</a>
+            </div>
+          </div>
+          <div class="dropdown">
+          <a href="#" onclick="toggleDropdown()"><i class="fas fa-users"></i> Customers <i class="fas fa-caret-down"></i></a>
+         <div class="dropdown-content" id="customer-dropdown">
+          <a href="reg.html"><i class="fas fa-user-plus"></i> Add New</a>
+          <a href="retrive.php"><i class="fas fa-users"></i> Members</a>
+          <a href="#"><i class="fas fa-users"></i> General customers</a>
+
+        </div>
+      </div>
+          <a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
+          <a href="#"><i class="fas fa-cog"></i> feedback</a>
+          <a href="" class="logout"><i class="fa fa-sign-out"></i>logout</a>
+        
+        </nav>
+     </aside>
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+              <h1>Dashboard</h1>
+              
+            </header>
+
+            <section class="section1">
+                <div class="stat">
+                  <h3>0 Menus</h3>
+                  <p>Updated 0%</p>
+                </div>
+                <div class="stat">
+                  <h3>0 Orders</h3>
+                  <p>Updated 0%</p>
+                </div>
+                <div class="stat">
+                  <h3>0 Customers</h3>
+                  <p>Updated 0%</p>
+                </div>
+                <div class="stat">
+                  <h3>Mk 0 Income</h3>
+                  <p>Updated 0%</p>
+                </div>
+              </section>
+
+              <section class="graphs">
+                <div class="graph-card">
+                    <h4>Revenue</h4>
+                    <canvas id="revenueChart"></canvas>
+                </div>
+
+                </div>
+                <div class="graph-card">
+                    <h4>most orderd food</h4>
+                    <canvas id="foodChart"></canvas>
+                </div>
+
+                </div>
+
+
+              </section>
+              <section class="section3">
+                <div>
+                   <h3>New Orders</h3>
+                    
+                </div>
+                <div class="neworders">
+                    
+
+                </div>
+
+              </section>
+
+            
+            
+        </main>
+
+        <script src="script.js"></script>
+        <script src="test.css"></script>
+</body>
+</html>
