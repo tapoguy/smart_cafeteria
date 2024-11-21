@@ -45,7 +45,7 @@ const AppNavigation = () => {
         const analyticsInstance = getAnalytics(app);
         setAnalytics(analyticsInstance);
         logEvent(analyticsInstance, 'app_open', {
-          method: 'App Initialized',
+          method: 'App Initialized2',
         });
       }
     };
